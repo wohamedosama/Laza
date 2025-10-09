@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laza/core/helpers/extension.dart';
+import 'package:laza/core/routing/routes.dart';
 import 'package:laza/core/theme/app_color.dart';
 import 'package:laza/core/theme/app_fonts.dart';
-import 'package:laza/core/widgets/custom_elevated_button.dart';
+import 'package:laza/core/widgets/custom_elevated_button_with_bordar_radius.dart';
 
 /// Widget that displays the content card with title, description, and action buttons
 class OnboardingContentCard extends StatelessWidget {
@@ -10,6 +12,7 @@ class OnboardingContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeMode = Theme.of(context).brightness;
     return Positioned(
       bottom: 0,
       left: 0,
@@ -18,7 +21,9 @@ class OnboardingContentCard extends StatelessWidget {
         padding: EdgeInsets.all(24.w),
         margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
         decoration: BoxDecoration(
-          color: AppColors.lightBackground,
+          color: themeMode == Brightness.dark
+              ? AppColors.darkBackground
+              : AppColors.lightBackground,
           borderRadius: BorderRadius.circular(20),
         ),
 
@@ -42,8 +47,10 @@ class OnboardingContentCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: CustomElevatedButton(
-                    backgroundColor: AppColors.darkCard,
+                  child: CustomElevatedButtonWithBorderRadius(
+                    backgroundColor: themeMode == Brightness.dark
+                        ? AppColors.darkNavy
+                        : AppColors.lightBackground,
                     textStyle: AppFonts.styleMedium17P.copyWith(
                       color: AppColors.darkSurface,
                     ),
@@ -53,11 +60,13 @@ class OnboardingContentCard extends StatelessWidget {
                 ),
                 SizedBox(width: 12.w),
                 Expanded(
-                  child: CustomElevatedButton(
+                  child: CustomElevatedButtonWithBorderRadius(
                     onPressed: () {},
                     text: 'Women',
                     textStyle: AppFonts.styleMedium17P.copyWith(
-                      color: AppColors.lightBackground,
+                      color: themeMode == Brightness.dark
+                          ? AppColors.darkCard
+                          : AppColors.lightBackground,
                     ),
                   ),
                 ),
@@ -65,7 +74,9 @@ class OnboardingContentCard extends StatelessWidget {
             ),
             SizedBox(height: 24.h),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(Routes.signUpScreen);
+              },
               child: Text(
                 'Skip',
                 style: AppFonts.styleMedium17P.copyWith(

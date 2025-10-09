@@ -1,33 +1,57 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:laza/core/theme/app_color.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
     super.key,
-    this.onPressed,
     required this.text,
-    this.backgroundColor,
+    required this.onPressed,
+    this.backgroundColor = const Color(0xFFA279F9),
+    this.textColor = Colors.white,
+    this.height = 70,
+    this.width = double.infinity,
+    this.borderRadius = 6,
+    this.elevation = 0,
     this.textStyle,
+    this.fontSize = 18,
+    this.fontWeight = FontWeight.w500,
   });
-  final VoidCallback? onPressed;
+
   final String text;
-  final Color? backgroundColor;
+  final VoidCallback onPressed;
+  final Color backgroundColor;
+  final Color textColor;
+  final double height;
+  final double width;
+  final double borderRadius;
+  final double elevation;
   final TextStyle? textStyle;
+  final double fontSize;
+  final FontWeight fontWeight;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      width: width,
+      height: height,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? AppColors.primaryColor,
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
+          elevation: elevation,
         ),
-        child: Text(text, style: textStyle),
+        child: Text(
+          text,
+          style:
+              textStyle ??
+              TextStyle(
+                color: textColor,
+                fontSize: fontSize,
+                fontWeight: fontWeight,
+              ),
+        ),
       ),
     );
   }
