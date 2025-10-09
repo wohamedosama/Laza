@@ -20,4 +20,10 @@ class AppAssets {
 
   /// Assets for assetsImagesSplash
   static const String assetsImagesSplash = "assets/images/Splash.png";
+
+  /// Assets for assetsImagesLogo
+  static const String assetsImagesLogo = "assets/images/logo.png";
+
+  /// Assets for assetsImagesOnboarding
+  static const String assetsOnboarding = "assets/images/onboarding.png";
 }
