@@ -49,7 +49,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               message: response.message,
               state: ToastState.success,
             );
-            // TODO: Navigate to verify email screen
             context.pushNamed(Routes.home);
           },
           failure: (message) {
