@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laza/core/widgets/custom_arrow_back_button.dart';
 import 'package:laza/core/widgets/custom_elevated_button.dart';
 import 'package:laza/core/widgets/custom_rich_text.dart';
-import 'package:laza/features/auth/presentation/widgets/foreget_password_button.dart';
-import 'package:laza/features/auth/presentation/widgets/login_form_container.dart';
-import 'package:laza/features/auth/presentation/widgets/login_welcome_header.dart';
-import 'package:laza/features/auth/presentation/widgets/remember_me_switch.dart';
+import 'package:laza/core/widgets/remember_me_switch.dart';
+import 'package:laza/features/auth/login/presentation/widgets/foreget_password_button.dart';
+import 'package:laza/features/auth/login/presentation/widgets/login_form_container.dart';
+import 'package:laza/features/auth/login/presentation/widgets/login_welcome_header.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

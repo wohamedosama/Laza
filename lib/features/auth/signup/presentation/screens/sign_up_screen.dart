@@ -6,8 +6,8 @@ import 'package:laza/core/theme/app_fonts.dart';
 import 'package:laza/core/widgets/custom_arrow_back_button.dart';
 import 'package:laza/core/widgets/custom_elevated_button.dart';
 import 'package:laza/core/widgets/custom_rich_text.dart';
-import 'package:laza/features/auth/presentation/widgets/remember_me_switch.dart';
-import 'package:laza/features/auth/presentation/widgets/sign_up_form_container.dart';
+import 'package:laza/core/widgets/remember_me_switch.dart';
+import 'package:laza/features/auth/signup/presentation/widgets/sign_up_form_container.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

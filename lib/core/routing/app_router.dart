@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/routing/routes.dart';
-import 'package:laza/features/auth/presentation/screens/login_screen.dart';
-import 'package:laza/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:laza/features/auth/login/presentation/screens/login_screen.dart';
+import 'package:laza/features/auth/signup/presentation/screens/sign_up_screen.dart';
 import 'package:laza/features/onbaording/onboarding_screen.dart';
 
 class AppRouter {
