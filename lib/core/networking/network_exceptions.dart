@@ -74,32 +74,12 @@ abstract class NetworkExceptions with _$NetworkExceptions {
             response?.data.toString() ??
             'Unknown error';
 
-        // Check if the error message indicates user already registered
-        if (errorMessage.toLowerCase().contains(
-              'one or more errors occurred',
-            ) ||
-            errorMessage.toLowerCase().contains('already registered') ||
-            errorMessage.toLowerCase().contains('already exists') ||
-            errorMessage.toLowerCase().contains('user already')) {
-          return const NetworkExceptions.alreadyRegistered();
-        }
-
         int statusCode = response?.statusCode ?? 0;
         return _getExceptionForStatusCode(statusCode, errorMessage);
       }
       // Handle string response
       else {
         String errorMessage = response?.data?.toString() ?? 'Unknown error';
-
-        // Check if the error message indicates user already registered
-        if (errorMessage.toLowerCase().contains(
-              'one or more errors occurred',
-            ) ||
-            errorMessage.toLowerCase().contains('already registered') ||
-            errorMessage.toLowerCase().contains('already exists') ||
-            errorMessage.toLowerCase().contains('user already')) {
-          return const NetworkExceptions.alreadyRegistered();
-        }
 
         int statusCode = response?.statusCode ?? 0;
         return _getExceptionForStatusCode(statusCode, errorMessage);

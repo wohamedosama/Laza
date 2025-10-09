@@ -5,6 +5,7 @@ import 'package:laza/core/helpers/extension.dart';
 import 'package:laza/core/helpers/flutter_toast.dart';
 import 'package:laza/core/routing/routes.dart';
 import 'package:laza/core/theme/app_fonts.dart';
+import 'package:laza/core/widgets/custom_animated_loading_indicator.dart';
 import 'package:laza/core/widgets/custom_arrow_back_button.dart';
 import 'package:laza/core/widgets/custom_elevated_button.dart';
 import 'package:laza/core/widgets/custom_rich_text.dart';
@@ -32,13 +33,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return BlocConsumer<SingupCubit, SingupState>(
       listener: (context, state) {
         state.whenOrNull(
+          loading: () {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) => const PopScope(
+                canPop: false,
+                child: CustomAnimatedLoadingIndicator(),
+              ),
+            );
+          },
           success: (response) {
+            Navigator.pop(context); // Dismiss loading dialog
             ShowFlutterToast.showToast(
               message: response.message,
               state: ToastState.success,
             );
+            // TODO: Navigate to verify email screen
+            context.pushNamed(Routes.home);
           },
           failure: (message) {
+            Navigator.pop(context); // Dismiss loading dialog
             ShowFlutterToast.showToast(
               message: message,
               state: ToastState.error,
