@@ -8,9 +8,13 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: Stack(
+    final themeMode = Theme.of(context).brightness;
+
+    return Scaffold(
+      backgroundColor: themeMode == Brightness.dark
+          ? AppColors.darkBackground
+          : AppColors.primaryColor,
+      body: const Stack(
         children: [
           OnboardingImageWidget(image: "assets/images/onboarding.png"),
           OnboardingContentCard(),
