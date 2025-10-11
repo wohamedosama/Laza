@@ -37,6 +37,7 @@ class SignUpFormContainer extends StatelessWidget {
         ),
         SizedBox(height: 15.h),
         CustomTextFormField(
+          obscureText: true,
           validator: Validators.passwordValidator,
           controller: passwordController,
           labelText: 'Password',

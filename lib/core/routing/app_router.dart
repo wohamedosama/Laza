@@ -6,6 +6,8 @@ import 'package:laza/features/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:laza/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:laza/features/auth/signup/presentation/cubit/singup_cubit.dart';
 import 'package:laza/features/auth/signup/presentation/screens/sign_up_screen.dart';
+import 'package:laza/features/auth/verify_email/presentation/cubit/verify_email_cubit.dart';
+import 'package:laza/features/auth/verify_email/presentation/screen/verify_email_screen.dart';
 import 'package:laza/features/home/presentation/screens/home_screen.dart';
 import 'package:laza/features/onbaording/onboarding_screen.dart';
 
@@ -28,6 +30,13 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<SingupCubit>(),
             child: const SignUpScreen(),
+          ),
+        );
+      case Routes.validateOtpScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VerifyEmailCubit>(),
+            child: VerifyEmailScreen(email: settings.arguments as String),
           ),
         );
       case Routes.home:

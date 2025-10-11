@@ -26,6 +26,7 @@ class LoginFormContainer extends StatelessWidget {
         ),
         SizedBox(height: 20.h),
         CustomTextFormField(
+          obscureText: true,
           validator: Validators.passwordValidator,
           controller: passwordController,
           labelText: 'Password',

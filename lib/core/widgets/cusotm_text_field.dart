@@ -10,6 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     this.icon,
     this.validator,
+    this.obscureText = false,
   });
 
   final String labelText;
@@ -17,6 +18,7 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final IconData? icon;
   final String? Function(String?)? validator;
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
         SizedBox(height: 10.h),
 
         TextFormField(
+          obscureText: obscureText,
           validator: validator,
           controller: controller,
           decoration: InputDecoration(

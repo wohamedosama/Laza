@@ -44,15 +44,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
             );
           },
           success: (response) {
-            Navigator.pop(context); // Dismiss loading dialog
+            Navigator.pop(context);
             ShowFlutterToast.showToast(
               message: response.message,
               state: ToastState.success,
             );
-            context.pushNamed(Routes.home);
+            context.pushNamed(
+              Routes.validateOtpScreen,
+              argument: emailController!.text,
+            );
           },
           failure: (message) {
-            Navigator.pop(context); // Dismiss loading dialog
+            Navigator.pop(context);
             ShowFlutterToast.showToast(
               message: message,
               state: ToastState.error,
