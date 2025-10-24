@@ -42,7 +42,7 @@ class SignUpFormContainer extends StatelessWidget {
           controller: passwordController,
           labelText: 'Password',
           hintText: 'Enter your password',
-          icon: Icons.visibility,
+          icon: Icons.visibility_off_outlined,
         ),
       ],
     );

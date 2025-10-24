@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      svg2dart:
+        options:
+          # Input directory for SVG files
+          input: "assets/icons"
+          # Output directory for generated Dart files
+          output: "lib/generated/icons"

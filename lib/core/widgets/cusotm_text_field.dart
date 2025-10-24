@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laza/core/theme/app_fonts.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -33,7 +34,17 @@ class CustomTextFormField extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
             hintText: hintText,
-            suffixIcon: Icon(icon),
+            suffixIcon: icon != null
+                ? Icon(icon)
+                : SvgPicture.asset(
+                    'assets/icons/searchIcon.svg',
+                    width: 24.w,
+                    height: 24.h,
+                    colorFilter: const ColorFilter.mode(
+                      Colors.grey,
+                      BlendMode.srcIn,
+                    ),
+                  ),
           ),
         ),
       ],

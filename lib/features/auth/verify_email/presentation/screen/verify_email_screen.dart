@@ -48,7 +48,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 );
               },
               success: (value) {
-                print('VerifyEmailScreen: SUCCESS - Email verified!');
                 Navigator.pop(context); // Dismiss loading dialog
                 ShowFlutterToast.showToast(
                   message: 'Email verified successfully',
@@ -61,7 +60,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 );
               },
               error: (value) {
-                print('VerifyEmailScreen: ERROR - ${value.message}');
                 Navigator.pop(context); // Dismiss loading dialog
                 ShowFlutterToast.showToast(
                   message: NetworkExceptions.getErrorMessage(value.message),
@@ -157,20 +155,13 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   }
 
   void confirmCode(BuildContext context) {
-    print('confirmCode called');
-    print('OTP: ${otpCodeController.text}');
-    print('Email: ${widget.email}');
-
     if (formKey.currentState!.validate()) {
-      print('Form validated - calling verifyEmail');
       BlocProvider.of<VerifyEmailCubit>(context).verifyEmail(
         VerifyEmailModelRequest(
           otpCode: otpCodeController.text,
           email: widget.email,
         ),
       );
-    } else {
-      print('Form validation failed');
-    }
+    } else {}
   }
 }

@@ -10,22 +10,15 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
   final VerifyEmailRepo verifyEmailRepo;
 
   Future<void> verifyEmail(VerifyEmailModelRequest request) async {
-    print('VerifyEmailCubit: verifyEmail called');
-    print('VerifyEmailCubit: Request = ${request.toJson()}');
-
     emit(const VerifyEmailState.loading());
-    print('VerifyEmailCubit: Loading state emitted');
 
     final result = await verifyEmailRepo.verifyEmail(request);
-    print('VerifyEmailCubit: Got result from repo');
 
     result.when(
       success: (response) {
-        print('VerifyEmailCubit: SUCCESS!');
         emit(const VerifyEmailState.success());
       },
       failure: (error) {
-        print('VerifyEmailCubit: FAILURE - $error');
         emit(VerifyEmailState.error(error));
       },
     );

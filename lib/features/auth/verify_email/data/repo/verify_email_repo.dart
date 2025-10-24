@@ -10,16 +10,11 @@ class VerifyEmailRepo {
 
   Future<ApiResult<void>> verifyEmail(VerifyEmailModelRequest request) async {
     try {
-      print('VerifyEmailRepo: Sending request with ${request.toJson()}');
       final response = await verifyEmailApiServices.verifyEmail(request);
-      print('VerifyEmailRepo: API call succeeded!');
+
       return ApiResult.success(response);
     } catch (error) {
-      print('VerifyEmailRepo: API call failed with error: $error');
-      if (error is DioException) {
-        print('Response status: ${error.response?.statusCode}');
-        print('Response data: ${error.response?.data}');
-      }
+      if (error is DioException) {}
       return ApiResult.failure(NetworkExceptions.getDioException(error));
     }
   }

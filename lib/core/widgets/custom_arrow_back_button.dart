@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laza/core/helpers/extension.dart';
 import 'package:laza/core/theme/app_color.dart';
 
@@ -19,12 +20,16 @@ class CustomArrowBackButton extends StatelessWidget {
         onPressed: () {
           context.pop();
         },
-        icon: Icon(
-          Icons.arrow_back_outlined,
-          size: 24.r,
-          color: themeMode == Brightness.dark
-              ? AppColors.lightBackground
-              : AppColors.darkNavy,
+        icon: SvgPicture.asset(
+          'assets/icons/menuIcon.svg',
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            themeMode == Brightness.dark
+                ? AppColors.lightBackground
+                : AppColors.darkNavy,
+            BlendMode.srcIn,
+          ),
         ),
       ),
     );

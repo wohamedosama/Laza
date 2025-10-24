@@ -14,6 +14,15 @@ class AppAssets {
   /// Assets for assetsIconsWalletIcon
   static const String assetsIconsWalletIcon = "assets/icons/walletIcon.svg";
 
+  /// Assets for assetsIconsWalletIcon
+  static const String assetsIconsmenuIcon = "assets/icons/menuIcon.svg";
+
+  /// Assets for assetsIconsWalletIcon
+  static const String assetsIconsearchIcon = "assets/icons/searchIcon.svg";
+
+  /// Assets for assetsIconsWalletIcon
+  static const String assetsIconvoiceIcon = "assets/icons/voiceIcon.svg";
+
   /// Assets for assetsImagesForgetPassword
   static const String assetsImagesForgetPassword =
       "assets/images/forgetPassword.png";

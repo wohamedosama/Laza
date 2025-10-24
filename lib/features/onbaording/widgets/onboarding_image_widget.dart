@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 /// Widget that displays the background image for the onboarding screen
 class OnboardingImageWidget extends StatelessWidget {
@@ -13,8 +14,16 @@ class OnboardingImageWidget extends StatelessWidget {
         errorBuilder: (context, error, stackTrace) {
           return Container(
             color: Colors.grey[300],
-            child: const Center(
-              child: Icon(Icons.broken_image, size: 50, color: Colors.grey),
+            child: Center(
+              child: SvgPicture.asset(
+                'assets/icons/homeIcon.svg',
+                width: 50,
+                height: 50,
+                colorFilter: const ColorFilter.mode(
+                  Colors.grey,
+                  BlendMode.srcIn,
+                ),
+              ),
             ),
           );
         },
